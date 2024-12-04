@@ -1,0 +1,98 @@
+<opc:TypeDictionary
+  xmlns:opc="http://opcfoundation.org/BinarySchema/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ua="http://opcfoundation.org/UA/"
+  xmlns:tns="http://common.swap.fraunhofer.de"
+  DefaultByteOrder="LittleEndian"
+  TargetNamespace="http://common.swap.fraunhofer.de"
+>
+  <opc:Import Namespace="http://opcfoundation.org/UA/" Location="Opc.Ua.BinarySchema.bsd"/>
+
+  <opc:EnumeratedType Name="AssetClassOrganization" LengthInBits="32">
+    <opc:EnumeratedValue Name="ASSET_TYPE_CENTRAL" Value="0" />
+    <opc:EnumeratedValue Name="ASSET_TYPE_DECENTRAL" Value="1" />
+  </opc:EnumeratedType>
+
+  <opc:EnumeratedType Name="AssetStateType" LengthInBits="32">
+    <opc:EnumeratedValue Name="ASSET_STATE_UNKNOWN" Value="0" />
+    <opc:EnumeratedValue Name="ASSET_STATE_OPERATIONAL" Value="1" />
+    <opc:EnumeratedValue Name="ASSET_STATE_INITALIZING" Value="2" />
+    <opc:EnumeratedValue Name="ASSET_STATE_ERROR" Value="3" />
+    <opc:EnumeratedValue Name="ASSET_STATE_IDLE" Value="4" />
+    <opc:EnumeratedValue Name="ASSET_STATE_EXECUTING" Value="5" />
+  </opc:EnumeratedType>
+
+  <opc:EnumeratedType Name="Operator_Type" LengthInBits="32">
+    <opc:EnumeratedValue Name="Equal" Value="0" />
+    <opc:EnumeratedValue Name="Greater" Value="1" />
+    <opc:EnumeratedValue Name="Smaller" Value="2" />
+    <opc:EnumeratedValue Name="GreaterOrEqual" Value="3" />
+    <opc:EnumeratedValue Name="SmallerOrEqual" Value="4" />
+    <opc:EnumeratedValue Name="IsTrue" Value="5" />
+    <opc:EnumeratedValue Name="IsFalse" Value="6" />
+    <opc:EnumeratedValue Name="EqualString" Value="7" />
+  </opc:EnumeratedType>
+
+  <opc:EnumeratedType Name="Queue_State_Variable_Type" LengthInBits="32">
+    <opc:EnumeratedValue Name="Waiting_For_Execution" Value="0" />
+    <opc:EnumeratedValue Name="Executing" Value="1" />
+    <opc:EnumeratedValue Name="Execution_Completed" Value="2" />
+    <opc:EnumeratedValue Name="Ready_For_Execution" Value="3" />
+  </opc:EnumeratedType>
+
+  <opc:EnumeratedType Name="ServiceExecutionStatus" LengthInBits="32">
+    <opc:EnumeratedValue Name="SERVICE_EXECUTION_SUCCESS" Value="0" />
+    <opc:EnumeratedValue Name="SERVICE_EXECUTION_FAIL" Value="1" />
+  </opc:EnumeratedType>
+
+  <opc:EnumeratedType Name="ServiceTriggerResult" LengthInBits="32">
+    <opc:EnumeratedValue Name="SERVICE_RESULT_INVALID_PARAMETER" Value="0" />
+    <opc:EnumeratedValue Name="SERVICE_RESULT_ACCEPTED" Value="1" />
+  </opc:EnumeratedType>
+
+  <opc:StructuredType Name="BaseLoggingType" BaseType="ua:ExtensionObject">
+  </opc:StructuredType>
+
+  <opc:StructuredType Name="Capability_Struct_Data_Type" BaseType="ua:ExtensionObject">
+    <opc:Field Name="Relational_Operator" TypeName="tns:Operator_Type" />
+  </opc:StructuredType>
+
+  <opc:StructuredType Name="Capability_Struct_Boolean" BaseType="tns:Capability_Struct_Data_Type">
+    <opc:Field Name="Relational_Operator" TypeName="tns:Operator_Type" SourceType="tns:Capability_Struct_Data_Type" />
+    <opc:Field Name="Value" TypeName="opc:Boolean" />
+  </opc:StructuredType>
+
+  <opc:StructuredType Name="Capability_Struct_Number" BaseType="tns:Capability_Struct_Data_Type">
+    <opc:Field Name="Relational_Operator" TypeName="tns:Operator_Type" SourceType="tns:Capability_Struct_Data_Type" />
+    <opc:Field Name="Value" TypeName="opc:Double" />
+  </opc:StructuredType>
+
+  <opc:StructuredType Name="Capability_Struct_String" BaseType="tns:Capability_Struct_Data_Type">
+    <opc:Field Name="Relational_Operator" TypeName="tns:Operator_Type" SourceType="tns:Capability_Struct_Data_Type" />
+    <opc:Field Name="Value" TypeName="opc:String" />
+  </opc:StructuredType>
+
+  <opc:StructuredType Name="Queue_Data_Type" BaseType="ua:ExtensionObject">
+    <opc:Field Name="Client_Identifier" TypeName="opc:String" />
+    <opc:Field Name="Service_UUID" TypeName="opc:String" />
+    <opc:Field Name="Entry_Number" TypeName="opc:Int16" />
+    <opc:Field Name="Queue_Element_State" TypeName="tns:Queue_State_Variable_Type" />
+    <opc:Field Name="ProductId" TypeName="opc:String" />
+    <opc:Field Name="NoOfServiceParameter" TypeName="opc:Int32" />
+    <opc:Field Name="ServiceParameter" TypeName="ua:DataValue" LengthField="NoOfServiceParameter" />
+  </opc:StructuredType>
+
+  <opc:StructuredType Name="ServiceExecutionAsyncResultDataType" BaseType="ua:ExtensionObject">
+    <opc:Field Name="ServiceResultMessage" TypeName="opc:String" />
+    <opc:Field Name="ServiceResultCode" TypeName="opc:Int32" />
+    <opc:Field Name="ExpectedServiceExecutionDuration" TypeName="opc:Double" />
+    <opc:Field Name="ServiceTriggerResult" TypeName="tns:ServiceTriggerResult" />
+  </opc:StructuredType>
+
+  <opc:StructuredType Name="ServiceExecutionSyncResultDataType" BaseType="ua:ExtensionObject">
+    <opc:Field Name="ServiceResultMessage" TypeName="opc:String" />
+    <opc:Field Name="ServiceResultCode" TypeName="opc:Int32" />
+    <opc:Field Name="ServiceExecutionStatus" TypeName="tns:ServiceExecutionStatus" />
+  </opc:StructuredType>
+
+</opc:TypeDictionary>

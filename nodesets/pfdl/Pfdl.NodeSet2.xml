@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" LastModified="2019-04-01T00:00:00Z" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>http://cps.iwu.fraunhofer.de/UA/Pfdl/</Uri>
+  </NamespaceUris>
+  <Models>
+    <Model ModelUri="http://cps.iwu.fraunhofer.de/UA/Pfdl/" XmlSchemaUri="http://cps.iwu.fraunhofer.de/UA/Pfdl/Types.xsd" Version="0.9.0" PublicationDate="2019-04-01T00:00:00Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" XmlSchemaUri="http://opcfoundation.org/UA/2008/02/Types.xsd" Version="1.03" PublicationDate="2013-12-02T00:00:00Z" />
+    </Model>
+  </Models>
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="SByte">i=2</Alias>
+    <Alias Alias="Byte">i=3</Alias>
+    <Alias Alias="Int16">i=4</Alias>
+    <Alias Alias="UInt16">i=5</Alias>
+    <Alias Alias="Int32">i=6</Alias>
+    <Alias Alias="UInt32">i=7</Alias>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="UInt64">i=9</Alias>
+    <Alias Alias="Float">i=10</Alias>
+    <Alias Alias="Double">i=11</Alias>
+    <Alias Alias="DateTime">i=13</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="ByteString">i=15</Alias>
+    <Alias Alias="Guid">i=14</Alias>
+    <Alias Alias="XmlElement">i=16</Alias>
+    <Alias Alias="NodeId">i=17</Alias>
+    <Alias Alias="ExpandedNodeId">i=18</Alias>
+    <Alias Alias="QualifiedName">i=20</Alias>
+    <Alias Alias="LocalizedText">i=21</Alias>
+    <Alias Alias="StatusCode">i=19</Alias>
+    <Alias Alias="Structure">i=22</Alias>
+    <Alias Alias="Number">i=26</Alias>
+    <Alias Alias="Integer">i=27</Alias>
+    <Alias Alias="UInteger">i=28</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasEventSource">i=36</Alias>
+    <Alias Alias="HasNotifier">i=48</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasModellingRule">i=37</Alias>
+    <Alias Alias="HasEncoding">i=38</Alias>
+    <Alias Alias="HasDescription">i=39</Alias>
+    <Alias Alias="HasCause">i=53</Alias>
+    <Alias Alias="ToState">i=52</Alias>
+    <Alias Alias="FromState">i=51</Alias>
+    <Alias Alias="HasEffect">i=54</Alias>
+    <Alias Alias="HasTrueSubState">i=9004</Alias>
+    <Alias Alias="HasFalseSubState">i=9005</Alias>
+    <Alias Alias="HasDictionaryEntry">i=17597</Alias>
+    <Alias Alias="HasCondition">i=9006</Alias>
+    <Alias Alias="HasGuard">i=15112</Alias>
+    <Alias Alias="HasAddIn">i=17604</Alias>
+    <Alias Alias="HasInterface">i=17603</Alias>
+  </Aliases>
+  <UADataType NodeId="ns=1;i=1" BrowseName="1:PfdlNumber">
+    <DisplayName>PfdlNumber</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+    </References>
+    <Definition Name="1:PfdlNumber">
+      <Field Name="value" DataType="i=11" />
+    </Definition>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=2" BrowseName="1:PfdlBoolean">
+    <DisplayName>PfdlBoolean</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+    </References>
+    <Definition Name="1:PfdlBoolean">
+      <Field Name="value" DataType="i=1" />
+    </Definition>
+  </UADataType>
+  <UADataType NodeId="ns=1;i=3" BrowseName="1:PfdlString">
+    <DisplayName>PfdlString</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=22</Reference>
+    </References>
+    <Definition Name="1:PfdlString">
+      <Field Name="value" DataType="i=12" />
+    </Definition>
+  </UADataType>
+  <UAObject NodeId="ns=1;i=4" BrowseName="Default Binary" SymbolicName="DefaultBinary">
+    <DisplayName>Default Binary</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=1</Reference>
+      <Reference ReferenceType="HasDescription">ns=1;i=11</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;i=5" BrowseName="Default Binary" SymbolicName="DefaultBinary">
+    <DisplayName>Default Binary</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=2</Reference>
+      <Reference ReferenceType="HasDescription">ns=1;i=14</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;i=6" BrowseName="Default Binary" SymbolicName="DefaultBinary">
+    <DisplayName>Default Binary</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3</Reference>
+      <Reference ReferenceType="HasDescription">ns=1;i=17</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;i=7" BrowseName="1:Pfdl" SymbolicName="Pfdl_BinarySchema" ReleaseStatus="Deprecated" DataType="ByteString">
+    <DisplayName>Pfdl</DisplayName>
+    <References>
+      <Reference ReferenceType="HasProperty">ns=1;i=9</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=10</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;i=11</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;i=14</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;i=17</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=93</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=72</Reference>
+    </References>
+    <Value>
+      <ByteString xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">PG9wYzpUeXBlRGljdGlvbmFyeQ0KICB4bWxuczpvcGM9Imh0dHA6Ly9vcGNmb3VuZGF0aW9uLm9y
+Zy9CaW5hcnlTY2hlbWEvIg0KICB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1M
+U2NoZW1hLWluc3RhbmNlIg0KICB4bWxuczp1YT0iaHR0cDovL29wY2ZvdW5kYXRpb24ub3JnL1VB
+LyINCiAgeG1sbnM6dG5zPSJodHRwOi8vY3BzLml3dS5mcmF1bmhvZmVyLmRlL1VBL1BmZGwvIg0K
+ICBEZWZhdWx0Qnl0ZU9yZGVyPSJMaXR0bGVFbmRpYW4iDQogIFRhcmdldE5hbWVzcGFjZT0iaHR0
+cDovL2Nwcy5pd3UuZnJhdW5ob2Zlci5kZS9VQS9QZmRsLyINCj4NCiAgPG9wYzpJbXBvcnQgTmFt
+ZXNwYWNlPSJodHRwOi8vb3BjZm91bmRhdGlvbi5vcmcvVUEvIiBMb2NhdGlvbj0iT3BjLlVhLkJp
+bmFyeVNjaGVtYS5ic2QiLz4NCg0KICA8b3BjOlN0cnVjdHVyZWRUeXBlIE5hbWU9IlBmZGxOdW1i
+ZXIiIEJhc2VUeXBlPSJ1YTpFeHRlbnNpb25PYmplY3QiPg0KICAgIDxvcGM6RmllbGQgTmFtZT0i
+dmFsdWUiIFR5cGVOYW1lPSJvcGM6RG91YmxlIiAvPg0KICA8L29wYzpTdHJ1Y3R1cmVkVHlwZT4N
+Cg0KICA8b3BjOlN0cnVjdHVyZWRUeXBlIE5hbWU9IlBmZGxCb29sZWFuIiBCYXNlVHlwZT0idWE6
+RXh0ZW5zaW9uT2JqZWN0Ij4NCiAgICA8b3BjOkZpZWxkIE5hbWU9InZhbHVlIiBUeXBlTmFtZT0i
+b3BjOkJvb2xlYW4iIC8+DQogIDwvb3BjOlN0cnVjdHVyZWRUeXBlPg0KDQogIDxvcGM6U3RydWN0
+dXJlZFR5cGUgTmFtZT0iUGZkbFN0cmluZyIgQmFzZVR5cGU9InVhOkV4dGVuc2lvbk9iamVjdCI+
+DQogICAgPG9wYzpGaWVsZCBOYW1lPSJ2YWx1ZSIgVHlwZU5hbWU9Im9wYzpTdHJpbmciIC8+DQog
+IDwvb3BjOlN0cnVjdHVyZWRUeXBlPg0KDQo8L29wYzpUeXBlRGljdGlvbmFyeT4=</ByteString>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=9" BrowseName="NamespaceUri" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=7" DataType="String">
+    <DisplayName>NamespaceUri</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">http://cps.iwu.fraunhofer.de/UA/Pfdl/</String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=10" BrowseName="Deprecated" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=7" DataType="Boolean">
+    <DisplayName>Deprecated</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7</Reference>
+    </References>
+    <Value>
+      <Boolean xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">true</Boolean>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=11" BrowseName="1:PfdlNumber" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=7" DataType="String">
+    <DisplayName>PfdlNumber</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=7</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">PfdlNumber</String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=14" BrowseName="1:PfdlBoolean" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=7" DataType="String">
+    <DisplayName>PfdlBoolean</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=7</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">PfdlBoolean</String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=17" BrowseName="1:PfdlString" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=7" DataType="String">
+    <DisplayName>PfdlString</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=7</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">PfdlString</String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;i=20" BrowseName="Default XML" SymbolicName="DefaultXml">
+    <DisplayName>Default XML</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=1</Reference>
+      <Reference ReferenceType="HasDescription">ns=1;i=27</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;i=21" BrowseName="Default XML" SymbolicName="DefaultXml">
+    <DisplayName>Default XML</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=2</Reference>
+      <Reference ReferenceType="HasDescription">ns=1;i=30</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;i=22" BrowseName="Default XML" SymbolicName="DefaultXml">
+    <DisplayName>Default XML</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3</Reference>
+      <Reference ReferenceType="HasDescription">ns=1;i=33</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;i=23" BrowseName="1:Pfdl" SymbolicName="Pfdl_XmlSchema" ReleaseStatus="Deprecated" DataType="ByteString">
+    <DisplayName>Pfdl</DisplayName>
+    <References>
+      <Reference ReferenceType="HasProperty">ns=1;i=25</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=26</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;i=27</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;i=30</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;i=33</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=92</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=72</Reference>
+    </References>
+    <Value>
+      <ByteString xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">PHhzOnNjaGVtYQ0KICB4bWxuczp4cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEi
+DQogIHhtbG5zOnVhPSJodHRwOi8vb3BjZm91bmRhdGlvbi5vcmcvVUEvMjAwOC8wMi9UeXBlcy54
+c2QiDQogIHhtbG5zOnRucz0iaHR0cDovL2Nwcy5pd3UuZnJhdW5ob2Zlci5kZS9VQS9QZmRsL1R5
+cGVzLnhzZCINCiAgdGFyZ2V0TmFtZXNwYWNlPSJodHRwOi8vY3BzLml3dS5mcmF1bmhvZmVyLmRl
+L1VBL1BmZGwvVHlwZXMueHNkIg0KICBlbGVtZW50Rm9ybURlZmF1bHQ9InF1YWxpZmllZCINCj4N
+CiAgPHhzOmFubm90YXRpb24+DQogICAgPHhzOmFwcGluZm8+DQogICAgICA8dG5zOk1vZGVsIE1v
+ZGVsVXJpPSJodHRwOi8vY3BzLml3dS5mcmF1bmhvZmVyLmRlL1VBL1BmZGwvIiBWZXJzaW9uPSIw
+LjkuMCIgUHVibGljYXRpb25EYXRlPSIyMDE5LTA0LTAxVDAwOjAwOjAwWiIgLz4NCiAgICA8L3hz
+OmFwcGluZm8+DQogIDwveHM6YW5ub3RhdGlvbj4NCiAgDQogIDx4czppbXBvcnQgbmFtZXNwYWNl
+PSJodHRwOi8vb3BjZm91bmRhdGlvbi5vcmcvVUEvMjAwOC8wMi9UeXBlcy54c2QiIC8+DQoNCiAg
+PHhzOmNvbXBsZXhUeXBlIG5hbWU9IlBmZGxOdW1iZXIiPg0KICAgIDx4czpzZXF1ZW5jZT4NCiAg
+ICAgIDx4czplbGVtZW50IG5hbWU9InZhbHVlIiB0eXBlPSJ4czpkb3VibGUiIG1pbk9jY3Vycz0i
+MCIgLz4NCiAgICA8L3hzOnNlcXVlbmNlPg0KICA8L3hzOmNvbXBsZXhUeXBlPg0KICA8eHM6ZWxl
+bWVudCBuYW1lPSJQZmRsTnVtYmVyIiB0eXBlPSJ0bnM6UGZkbE51bWJlciIgLz4NCg0KICA8eHM6
+Y29tcGxleFR5cGUgbmFtZT0iTGlzdE9mUGZkbE51bWJlciI+DQogICAgPHhzOnNlcXVlbmNlPg0K
+ICAgICAgPHhzOmVsZW1lbnQgbmFtZT0iUGZkbE51bWJlciIgdHlwZT0idG5zOlBmZGxOdW1iZXIi
+IG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSJ1bmJvdW5kZWQiIG5pbGxhYmxlPSJ0cnVlIiAvPg0K
+ICAgIDwveHM6c2VxdWVuY2U+DQogIDwveHM6Y29tcGxleFR5cGU+DQogIDx4czplbGVtZW50IG5h
+bWU9Ikxpc3RPZlBmZGxOdW1iZXIiIHR5cGU9InRuczpMaXN0T2ZQZmRsTnVtYmVyIiBuaWxsYWJs
+ZT0idHJ1ZSI+PC94czplbGVtZW50Pg0KDQogIDx4czpjb21wbGV4VHlwZSBuYW1lPSJQZmRsQm9v
+bGVhbiI+DQogICAgPHhzOnNlcXVlbmNlPg0KICAgICAgPHhzOmVsZW1lbnQgbmFtZT0idmFsdWUi
+IHR5cGU9InhzOmJvb2xlYW4iIG1pbk9jY3Vycz0iMCIgLz4NCiAgICA8L3hzOnNlcXVlbmNlPg0K
+ICA8L3hzOmNvbXBsZXhUeXBlPg0KICA8eHM6ZWxlbWVudCBuYW1lPSJQZmRsQm9vbGVhbiIgdHlw
+ZT0idG5zOlBmZGxCb29sZWFuIiAvPg0KDQogIDx4czpjb21wbGV4VHlwZSBuYW1lPSJMaXN0T2ZQ
+ZmRsQm9vbGVhbiI+DQogICAgPHhzOnNlcXVlbmNlPg0KICAgICAgPHhzOmVsZW1lbnQgbmFtZT0i
+UGZkbEJvb2xlYW4iIHR5cGU9InRuczpQZmRsQm9vbGVhbiIgbWluT2NjdXJzPSIwIiBtYXhPY2N1
+cnM9InVuYm91bmRlZCIgbmlsbGFibGU9InRydWUiIC8+DQogICAgPC94czpzZXF1ZW5jZT4NCiAg
+PC94czpjb21wbGV4VHlwZT4NCiAgPHhzOmVsZW1lbnQgbmFtZT0iTGlzdE9mUGZkbEJvb2xlYW4i
+IHR5cGU9InRuczpMaXN0T2ZQZmRsQm9vbGVhbiIgbmlsbGFibGU9InRydWUiPjwveHM6ZWxlbWVu
+dD4NCg0KICA8eHM6Y29tcGxleFR5cGUgbmFtZT0iUGZkbFN0cmluZyI+DQogICAgPHhzOnNlcXVl
+bmNlPg0KICAgICAgPHhzOmVsZW1lbnQgbmFtZT0idmFsdWUiIHR5cGU9InhzOnN0cmluZyIgbWlu
+T2NjdXJzPSIwIiBuaWxsYWJsZT0idHJ1ZSIgLz4NCiAgICA8L3hzOnNlcXVlbmNlPg0KICA8L3hz
+OmNvbXBsZXhUeXBlPg0KICA8eHM6ZWxlbWVudCBuYW1lPSJQZmRsU3RyaW5nIiB0eXBlPSJ0bnM6
+UGZkbFN0cmluZyIgLz4NCg0KICA8eHM6Y29tcGxleFR5cGUgbmFtZT0iTGlzdE9mUGZkbFN0cmlu
+ZyI+DQogICAgPHhzOnNlcXVlbmNlPg0KICAgICAgPHhzOmVsZW1lbnQgbmFtZT0iUGZkbFN0cmlu
+ZyIgdHlwZT0idG5zOlBmZGxTdHJpbmciIG1pbk9jY3Vycz0iMCIgbWF4T2NjdXJzPSJ1bmJvdW5k
+ZWQiIG5pbGxhYmxlPSJ0cnVlIiAvPg0KICAgIDwveHM6c2VxdWVuY2U+DQogIDwveHM6Y29tcGxl
+eFR5cGU+DQogIDx4czplbGVtZW50IG5hbWU9Ikxpc3RPZlBmZGxTdHJpbmciIHR5cGU9InRuczpM
+aXN0T2ZQZmRsU3RyaW5nIiBuaWxsYWJsZT0idHJ1ZSI+PC94czplbGVtZW50Pg0KDQo8L3hzOnNj
+aGVtYT4=</ByteString>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=25" BrowseName="NamespaceUri" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=23" DataType="String">
+    <DisplayName>NamespaceUri</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=23</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">http://cps.iwu.fraunhofer.de/UA/Pfdl/Types.xsd</String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=26" BrowseName="Deprecated" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=23" DataType="Boolean">
+    <DisplayName>Deprecated</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=23</Reference>
+    </References>
+    <Value>
+      <Boolean xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">true</Boolean>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=27" BrowseName="1:PfdlNumber" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=23" DataType="String">
+    <DisplayName>PfdlNumber</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=23</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">//xs:element[@name='PfdlNumber']</String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=30" BrowseName="1:PfdlBoolean" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=23" DataType="String">
+    <DisplayName>PfdlBoolean</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=23</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">//xs:element[@name='PfdlBoolean']</String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;i=33" BrowseName="1:PfdlString" ReleaseStatus="Deprecated" ParentNodeId="ns=1;i=23" DataType="String">
+    <DisplayName>PfdlString</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">i=69</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=23</Reference>
+    </References>
+    <Value>
+      <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">//xs:element[@name='PfdlString']</String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;i=36" BrowseName="Default JSON" SymbolicName="DefaultJson">
+    <DisplayName>Default JSON</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;i=37" BrowseName="Default JSON" SymbolicName="DefaultJson">
+    <DisplayName>Default JSON</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=2</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;i=38" BrowseName="Default JSON" SymbolicName="DefaultJson">
+    <DisplayName>Default JSON</DisplayName>
+    <References>
+      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
+    </References>
+  </UAObject>
+</UANodeSet>

@@ -1,0 +1,42 @@
+{
+    "application_name": "MillingModuleServer2",
+    "resource_ip": "localhost",
+    "port": "4841",
+    "module_type": "MillingModuleType",
+    "module_name": "MillingModule",
+    "service_name": "MillingService",
+    "device_registry": "opc.tcp://localhost:8000",
+    "registry_subscriptions": [
+        {
+            "object": "State"
+        },
+        {
+            "object": "Capabilities"
+        }
+    ],
+    "Capabilities": [
+        {
+            "variable_name": "precision",
+            "variable_type": "numeric",
+            "variable_value": "100",
+            "relational_operator": "Greater"
+        },
+        {
+            "variable_name": "costs",
+            "variable_type": "numeric",
+            "variable_value": "200",
+            "relational_operator": "Greater"
+        }
+    ],
+    "channels": "100",
+    "sessions": "100",
+    "namespace": "https://cps.iwu.fraunhofer.de/UA/CpsDemo",
+    "input_params": {
+        "order": "string",
+        "speed": "number",
+        "plot": "boolean"
+    },
+    "output_param": {
+        "success": "boolean"
+    }
+}

@@ -1,0 +1,65 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build_basic
+  - build_skill
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+build-pfdl_module_server:
+  stage: build_basic
+  only:
+    - tags
+  allow_failure: false
+  tags:
+    - asprunner
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+
+  script:
+    - mkdir -p /kaniko/.docker
+    - |
+      echo "{\"auths\":{
+        \"$CI_REGISTRY\":{
+          \"username\":\"$CI_REGISTRY_USER\",
+          \"password\":\"$CI_REGISTRY_PASSWORD\"
+        },
+        \"$BASE_REGISTRY\":{
+          \"username\":\"$BASE_USER\",
+          \"password\":\"$BASE_PW\"
+        }
+      }}" > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor \
+        --context $CI_PROJECT_DIR \
+        --dockerfile $CI_PROJECT_DIR/docker/base/Dockerfile \
+        --destination $CI_REGISTRY_IMAGE/base:latest \
+        --destination $CI_REGISTRY_IMAGE/base:$CI_COMMIT_TAG
+
+build-skill_pfdl_module_server:
+  stage: build_skill
+  only:
+    - tags
+  tags:
+    - asprunner
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+
+  script:
+    - mkdir -p /kaniko/.docker
+    - |
+      echo "{\"auths\":{
+        \"$CI_REGISTRY\":{
+          \"username\":\"$CI_REGISTRY_USER\",
+          \"password\":\"$CI_REGISTRY_PASSWORD\"
+        }
+      }}" > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor \
+        --context $CI_PROJECT_DIR \
+        --dockerfile $CI_PROJECT_DIR/docker/skill/Dockerfile \
+        --build-arg USER=$SBC_USER \
+        --build-arg PW=$SBC_PW \
+        --destination $CI_REGISTRY_IMAGE/skill:latest \
+        --destination $CI_REGISTRY_IMAGE/skill:$CI_COMMIT_TAG \

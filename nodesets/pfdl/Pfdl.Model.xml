@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModelDesign
+        xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ua="http://opcfoundation.org/UA/"
+        xmlns:pfdl="http://cps.iwu.fraunhofer.de/UA/Pfdl/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        TargetNamespace="http://cps.iwu.fraunhofer.de/UA/Pfdl/"
+        TargetXmlNamespace="http://cps.iwu.fraunhofer.de/UA/Pfdl/"
+        TargetVersion="0.9.0"
+        TargetPublicationDate="2019-04-01T00:00:00Z"
+        xmlns="http://opcfoundation.org/UA/ModelDesign.xsd">
+
+    <Namespaces>
+        <Namespace Name="Pfdl" Prefix="Pfdl" XmlNamespace="http://cps.iwu.fraunhofer.de/UA/Pfdl/Types.xsd" XmlPrefix="Pfdl">http://cps.iwu.fraunhofer.de/UA/Pfdl/</Namespace>
+        <Namespace Name="OpcUa" Version="1.03" PublicationDate="2013-12-02T00:00:00Z" Prefix="Opc.Ua" InternalPrefix="Opc.Ua.Server" XmlNamespace="http://opcfoundation.org/UA/2008/02/Types.xsd" XmlPrefix="OpcUa">http://opcfoundation.org/UA/</Namespace>
+    </Namespaces>
+
+    <!-- ### Data Types ###-->
+
+    <!-- Structs Wrappers of basic PFDL Datatypes to provide basic return values -->
+    <DataType SymbolicName="pfdl:PfdlNumber" BaseType="ua:Structure">
+        <Fields>
+            <Field Name="value" DataType="ua:Double"/>
+        </Fields>
+    </DataType>
+
+    <DataType SymbolicName="pfdl:PfdlBoolean" BaseType="ua:Structure">
+        <Fields>
+            <Field Name="value" DataType="ua:Boolean"/>
+        </Fields>
+    </DataType>
+
+    <DataType SymbolicName="pfdl:PfdlString" BaseType="ua:Structure">
+        <Fields>
+            <Field Name="value" DataType="ua:String"/>
+        </Fields>
+    </DataType>
+
+</ModelDesign>

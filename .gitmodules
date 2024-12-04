@@ -1,0 +1,6 @@
+[submodule "nodesets/common"]
+	path = nodesets/common
+	url = https://github.com/FraunhoferIOSB/swap-it-common-information-model
+[submodule "deps/nanobind"]
+	path = deps/nanobind
+	url = https://github.com/wjakob/nanobind

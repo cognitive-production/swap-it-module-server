@@ -1,0 +1,14 @@
+Pfdl_BinarySchema,7,Variable
+Pfdl_XmlSchema,23,Variable
+PfdlBoolean,2,DataType
+PfdlBoolean_Encoding_DefaultBinary,5,Object
+PfdlBoolean_Encoding_DefaultJson,37,Object
+PfdlBoolean_Encoding_DefaultXml,21,Object
+PfdlNumber,1,DataType
+PfdlNumber_Encoding_DefaultBinary,4,Object
+PfdlNumber_Encoding_DefaultJson,36,Object
+PfdlNumber_Encoding_DefaultXml,20,Object
+PfdlString,3,DataType
+PfdlString_Encoding_DefaultBinary,6,Object
+PfdlString_Encoding_DefaultJson,38,Object
+PfdlString_Encoding_DefaultXml,22,Object

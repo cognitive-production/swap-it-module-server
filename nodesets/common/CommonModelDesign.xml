@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Licensed under the MIT License.
+For details on the licensing terms, see the LICENSE file.
+SPDX-License-Identifier: MIT
+
+Copyright 2023-2024 (c) Fraunhofer IOSB (Author: Florian Düwel)-->
+
+<ModelDesign
+  xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ua="http://opcfoundation.org/UA/"
+  xmlns:cmn="http://common.swap.fraunhofer.de"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  TargetNamespace="http://common.swap.fraunhofer.de"
+  TargetXmlNamespace="http://common.swap.fraunhofer.de"
+  TargetVersion="1.00.0"
+  TargetPublicationDate="2024-01-01T00:00:00Z"
+  xmlns="http://opcfoundation.org/UA/ModelDesign.xsd">
+
+  <Namespaces>
+    <Namespace Name="Common" Prefix="SWAP.Fraunhofer.Common.Model" XmlNamespace="http://common.swap.fraunhofer.de/Types.xsd" XmlPrefix="cmn">http://common.swap.fraunhofer.de</Namespace>
+    <Namespace Name="OpcUa" Prefix="Opc.Ua" Version="1.03.00" PublicationDate="2013-12-02T00:00:00Z" InternalPrefix="Opc.Ua.Server" XmlNamespace="http://opcfoundation.org/UA/2008/02/Types.xsd" XmlPrefix="ua">http://opcfoundation.org/UA/</Namespace>
+  </Namespaces>
+
+  <Object SymbolicName="cmn:FraunhoferCOMMONNamespaceMetadata" TypeDefinition="ua:NamespaceMetadataType">
+    <BrowseName>COMMON</BrowseName>
+    <Children>
+      <Property SymbolicName="ua:NamespaceUri" DataType="ua:String">
+        <DefaultValue>
+          <uax:String>http://common.swap.fraunhofer.de</uax:String>
+        </DefaultValue>
+      </Property>
+      <Property SymbolicName="ua:NamespaceVersion" DataType="ua:String">
+        <DefaultValue>
+          <uax:String>1.00.0</uax:String>
+        </DefaultValue>
+      </Property>
+      <Property SymbolicName="ua:NamespacePublicationDate" DataType="ua:DateTime">
+        <DefaultValue>
+          <uax:DateTime>2024-01-01</uax:DateTime>
+        </DefaultValue>
+      </Property>
+      <Property SymbolicName="ua:IsNamespaceSubset" DataType="ua:Boolean">
+        <DefaultValue>
+          <uax:Boolean>false</uax:Boolean>
+        </DefaultValue>
+      </Property>
+      <Property SymbolicName="ua:StaticNodeIdTypes" DataType="ua:IdType" ValueRank="Array">
+        <DefaultValue>
+          <uax:ListOfInt32>
+            <uax:Int32>0</uax:Int32>
+          </uax:ListOfInt32>
+        </DefaultValue>
+      </Property>
+      <Property SymbolicName="ua:StaticNumericNodeIdRange" DataType="ua:NumericRange" ValueRank="Array"/>
+      <Property SymbolicName="ua:StaticStringNodeIdPattern" DataType="ua:String">
+        <DefaultValue>
+          <uax:String></uax:String>
+        </DefaultValue>
+      </Property>
+      <Property SymbolicName="ua:DefaultRolePermissions" ModellingRule="Mandatory" />
+      <Property SymbolicName="ua:DefaultUserRolePermissions" ModellingRule="Mandatory" />
+      <Property SymbolicName="ua:DefaultAccessRestrictions" ModellingRule="Mandatory" />
+    </Children>
+    <References>
+      <Reference IsInverse="true">
+        <ReferenceType>ua:HasComponent</ReferenceType>
+        <TargetId>ua:Server_Namespaces</TargetId>
+      </Reference>
+    </References>
+  </Object>
+
+
+
+  <!-- Data Types -->
+
+
+  <!-- Enumeration-->
+  <DataType SymbolicName="cmn:AssetClassOrganization" BaseType="ua:Enumeration">
+    <Fields>
+      <Field Name="ASSET_TYPE_CENTRAL" Identifier="0"/>
+      <Field Name="ASSET_TYPE_DECENTRAL" Identifier="1"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:AssetStateType" BaseType="ua:Enumeration">
+    <Fields>
+      <Field Name="ASSET_STATE_UNKNOWN" Identifier="0"/>
+      <Field Name="ASSET_STATE_OPERATIONAL" Identifier="1"/>
+      <Field Name="ASSET_STATE_INITALIZING" Identifier="2"/>
+      <Field Name="ASSET_STATE_ERROR" Identifier="3"/>
+      <Field Name="ASSET_STATE_IDLE" Identifier="4"/>
+      <Field Name="ASSET_STATE_EXECUTING" Identifier="5"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:Operator_Type" BaseType="ua:Enumeration">
+    <Fields>
+      <Field Name="Equal" Identifier="0"/>
+      <Field Name="Greater" Identifier="1"/>
+      <Field Name="Smaller" Identifier="2"/>
+      <Field Name="GreaterOrEqual" Identifier="3"/>
+      <Field Name="SmallerOrEqual" Identifier="4"/>
+      <Field Name="IsTrue" Identifier="5"/>
+      <Field Name="IsFalse" Identifier="6"/>
+      <Field Name="EqualString" Identifier="7"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:Queue_State_Variable_Type" BaseType="ua:Enumeration">
+    <Fields>
+      <Field Name="Waiting_For_Execution" Identifier="0"/>
+      <Field Name="Executing" Identifier="1"/>
+      <Field Name="Execution_Completed" Identifier="2"/>
+      <Field Name="Ready_For_Execution" Identifier="3"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:ServiceExecutionStatus" BaseType="ua:Enumeration">
+    <Fields>
+      <Field Name="SERVICE_EXECUTION_SUCCESS" Identifier="0"/>
+      <Field Name="SERVICE_EXECUTION_FAIL" Identifier="1"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:ServiceTriggerResult" BaseType="ua:Enumeration">
+    <Fields>
+      <Field Name="SERVICE_RESULT_INVALID_PARAMETER" Identifier="0"/>
+      <Field Name="SERVICE_RESULT_ACCEPTED" Identifier="1"/>
+    </Fields>
+  </DataType>
+
+
+  <!-- Structure-->
+  <DataType SymbolicName="cmn:BaseLoggingType" BaseType="ua:Structure" IsAbstract="true"/>
+
+  <DataType SymbolicName="cmn:Capability_Struct_Data_Type" BaseType="ua:Structure">
+    <Fields>
+      <Field Name="Relational_Operator" DataType="cmn:Operator_Type"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:Capability_Struct_Boolean" BaseType="cmn:Capability_Struct_Data_Type">
+    <Fields>
+      <Field Name="Value" DataType="ua:Boolean" />
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:Capability_Struct_Number" BaseType="cmn:Capability_Struct_Data_Type">
+    <Fields>
+      <Field Name="Value" DataType="ua:Double" />
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:Capability_Struct_String" BaseType="cmn:Capability_Struct_Data_Type">
+    <Fields>
+      <Field Name="Value" DataType="ua:String" />
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:Queue_Data_Type" BaseType="ua:Structure">
+    <Fields>
+      <Field Name="Client_Identifier" DataType="ua:String"/>
+      <Field Name="Service_UUID" DataType="ua:String"/>
+      <Field Name="Entry_Number" DataType="ua:Int16"/>
+      <Field Name="Queue_Element_State" DataType="cmn:Queue_State_Variable_Type"/>
+      <Field Name="ProductId" DataType="ua:String"/>
+      <Field Name="ServiceParameter" DataType="ua:DataValue" ValueRank="Array"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:ServiceExecutionAsyncResultDataType" BaseType="ua:Structure">
+    <Fields>
+      <Field Name="ServiceResultMessage" DataType="ua:String" ModellingRule="Optional"/>
+      <Field Name="ServiceResultCode" DataType="ua:Int32" ModellingRule="Optional"/>
+      <Field Name="ExpectedServiceExecutionDuration" DataType="ua:Duration" ModellingRule="Optional"/>
+      <Field Name="ServiceTriggerResult" DataType="cmn:ServiceTriggerResult" ModellingRule="Optional"/>
+    </Fields>
+  </DataType>
+
+  <DataType SymbolicName="cmn:ServiceExecutionSyncResultDataType" BaseType="ua:Structure" IsAbstract="true">
+    <Fields>
+      <Field Name="ServiceResultMessage" DataType="ua:String" ModellingRule="Optional"/>
+      <Field Name="ServiceResultCode" DataType="ua:Int32" ModellingRule="Optional"/>
+      <Field Name="ServiceExecutionStatus" DataType="cmn:ServiceExecutionStatus" ModellingRule="Optional"/>
+    </Fields>
+  </DataType>
+
+  <!-- ObjectTypes and EventTypes-->
+
+  <!-- Events -->
+  <ObjectType SymbolicName="cmn:ServiceFinishedEventType" BaseType="ua:BaseEventType">
+    <Children>
+      <Property SymbolicName="cmn:ServiceExecutionResult" DataType="cmn:ServiceExecutionStatus" ModellingRule="Mandatory" />
+      <Property SymbolicName="cmn:service_uuid" DataType="ua:String" ModellingRule="Mandatory" />
+      <Property SymbolicName="cmn:task_uuid" DataType="ua:String" ModellingRule="Mandatory" />
+    </Children>
+  </ObjectType>
+
+  <!-- ObjectTypes -->
+  <ObjectType SymbolicName="cmn:QueueObjectType" BaseType="ua:BaseObjectType">
+    <Children>
+      <Variable SymbolicName="cmn:queue_variable" DataType="cmn:Queue_Data_Type" AccessLevel="ReadWrite"/>
+      <!--Variable SymbolicName="cmn:service_name" DataType="ua:String"/-->
+      <Method SymbolicName="cmn:add_queue_element" TypeDefinition="cmn:AddToQueueMethodType">
+      </Method>
+      <Method SymbolicName="cmn:remove_queue_element" TypeDefinition="cmn:RemoveFromQueueMethodType">
+      </Method>
+      <!--Method SymbolicName="cmn:set_queue_element_state" TypeDefinition="cmn:SetStateMethodType">
+      </Method-->
+    </Children>
+  </ObjectType>
+
+  <ObjectType SymbolicName="cmn:ServiceObjectType" BaseType="ua:BaseObjectType">
+    <Children>
+      <Method SymbolicName="cmn:register" TypeDefinition="cmn:RegisterMethodType"/>
+      <Method SymbolicName="cmn:unregister" TypeDefinition="cmn:UnregisterMethodType"/>
+      <Variable SymbolicName="cmn:registered" DataType="ua:Boolean" AccessLevel="ReadWrite" />
+    </Children>
+  </ObjectType>
+
+  <ObjectType SymbolicName="cmn:ModuleType" BaseType="ua:BaseObjectType">
+    <Children>
+      <Object SymbolicName="cmn:Capabilities" BaseType="ua:BaseObjectType"/>
+      <Object SymbolicName="cmn:Properties">
+        <Children>
+          <Object SymbolicName="cmn:Asset">
+            <Children>
+              <Variable SymbolicName="cmn:SerialNumber" DataType="ua:String" AccessLevel="ReadWrite"/>
+              <Variable SymbolicName="cmn:Vendor" DataType="ua:String" AccessLevel="ReadWrite"/>
+            </Children>
+          </Object>
+          <Object SymbolicName="cmn:AssetClass">
+            <Children>
+              <Variable SymbolicName="cmn:CommonModelVersion" DataType="ua:String" AccessLevel="ReadWrite"/>
+              <Variable SymbolicName="cmn:ModuleOrganization" DataType="cmn:AssetClassOrganization" AccessLevel="ReadWrite"/>
+              <Variable SymbolicName="cmn:ModuleProfileName" DataType="ua:String" AccessLevel="ReadWrite"/>
+              <Variable SymbolicName="cmn:ModuleProfileVersion" DataType="ua:Int16" AccessLevel="ReadWrite"/>
+            </Children>
+          </Object>
+          <Variable SymbolicName="cmn:Stationary" DataType="ua:Boolean" AccessLevel="ReadWrite"/>
+        </Children>
+      </Object>
+      <Object SymbolicName="cmn:Queue" BaseType="ua:BaseObjectType">
+        <Children>
+          <Object SymbolicName="cmn:ServiceQueue" TypeDefinition="cmn:QueueObjectType"/>
+        </Children>
+      </Object>
+      <Object SymbolicName="cmn:Registry_Subscriptions" BaseType="ua:BaseObjectType">
+        <Children>
+          <Variable SymbolicName="cmn:Subscription_Objects" DataType="ua:QualifiedName" AccessLevel="ReadWrite"/>
+        </Children>
+      </Object>
+      <Object SymbolicName="cmn:Services" TypeDefinition="cmn:ServiceObjectType"/>
+      <Object SymbolicName="cmn:State" BaseType="ua:BaseObjectType">
+        <Children>
+          <Variable SymbolicName="cmn:AssetState" DataType="cmn:AssetStateType" AccessLevel="ReadWrite"/>
+          <Variable SymbolicName="cmn:Location" DataType="ua:String"  AccessLevel="ReadWrite"/>
+        </Children>
+      </Object>
+    </Children>
+  </ObjectType>
+
+  <!-- Methods -->
+  <Method SymbolicName="cmn:AddToQueueMethodType">
+    <InputArguments>
+      <Argument Name="new input" DataType="cmn:Queue_Data_Type" ModellingRule="Mandatory">
+      </Argument>
+    </InputArguments>
+  </Method>
+
+  <Method SymbolicName="cmn:RegisterMethodType">
+    <InputArguments>
+      <Argument Name="Registry URL" DataType="ua:String" ModellingRule="Mandatory">
+        <Descriptions>Url and Port of the Device Regsitry the Agent shall register in. The Argument Format is "ip_address:port", e.g. "0.0.0.0:4840" </Descriptions>
+      </Argument>
+      <Argument Name="Resource URL" DataType="ua:String" ModellingRule="Mandatory">
+        <Descriptions>Url and Port of the Device. The Argument Format is "ip_address:port", e.g. "0.0.0.0:4840" </Descriptions>
+      </Argument>
+    </InputArguments>
+  </Method>
+
+  <Method SymbolicName="cmn:UnregisterMethodType">
+    <InputArguments>
+      <Argument Name="Registry URL" DataType="ua:String" ModellingRule="Mandatory">
+        <Descriptions>Url and Port of the Device Regsitry the Agent shall unregister from. The Argument Format is "ip_address:port", e.g. "0.0.0.0:4840" </Descriptions>
+      </Argument>
+      <Argument Name="Resource URL" DataType="ua:String" ModellingRule="Mandatory">
+        <Descriptions>Url and Port of the Device. The Argument Format is "ip_address:port", e.g. "0.0.0.0:4840" </Descriptions>
+      </Argument>
+    </InputArguments>
+  </Method>
+
+
+  <Method SymbolicName="cmn:RemoveFromQueueMethodType">
+    <InputArguments>
+      <Argument Name="remove_element" DataType="cmn:Queue_Data_Type" ModellingRule="Mandatory">
+        <Descriptions>Url and Port of the Device Regsitry the Agent shall unregister from. The Argument Format is ip_address:port, e.g. 0.0.0.0:4840 </Descriptions>
+      </Argument>
+    </InputArguments>
+  </Method>
+
+  <Method SymbolicName="cmn:SetStateMethodType">
+    <InputArguments>
+      <Argument Name="service_uuid" DataType="ua:String" ModellingRule="Mandatory"/>
+      <Argument Name="client_uuid" DataType="ua:String" ModellingRule="Mandatory"/>
+      <Argument Name="next_state" DataType="cmn:Queue_State_Variable_Type" ModellingRule="Mandatory"/>
+    </InputArguments>
+  </Method>
+
+
+</ModelDesign>
