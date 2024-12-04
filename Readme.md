@@ -65,18 +65,3 @@ def cb(order: str, speed: float, plot: bool) -> bool:
 # run the server
 swapit_module_server.run("config.json", cb, True)
 ```
-### Pfdl
-tbd
-### Docker
-To execute the module server inside a Docker Container just mount the folder containing the config and server implementation (i.e. `config.json`, `server.py`) into the Container and overwrite the `COMMAND`, e.g.:
-``` yaml
-services:
-    module_server:
-        image: container-registry.gitlab.cc-asp.fraunhofer.de/cpps/systemdemonstrator/swap-it/module-server
-        ports:
-            - 4840:4840
-        volumes:
-            - ".:/opt/module-server/my_server"
-        command: ["my_server/server.py"]
-
-```
