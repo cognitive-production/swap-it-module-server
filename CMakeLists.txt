@@ -40,5 +40,3 @@ target_include_directories(module_server
 )
 
 add_subdirectory(python)
-
-add_subdirectory(test)

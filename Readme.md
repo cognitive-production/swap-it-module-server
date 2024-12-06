@@ -13,6 +13,10 @@ Install [scikit-build-core](https://github.com/scikit-build/scikit-build-core):
 ```
 pip install scikit-build-core==0.2.2
 ```
+Install [ninja-build](https://ninja-build.org/):
+```
+apt install ninja-build
+```
 Run:
 ``` shell
 pip install .
